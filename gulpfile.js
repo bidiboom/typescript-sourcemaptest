@@ -81,6 +81,7 @@ gulp.task("test-transpile4", function() {
             target:'ES5'
         })).js
     .pipe(sourcemaps.write('./', {
+        
         includeContent:false
     }))
     .pipe(gulp.dest("compiled/test4"));
@@ -96,7 +97,7 @@ gulp.task("test-transpile5", function(callback) {
             'node node_modules/typescript/bin/tsc --outDir compiled/test5 --sourceMap ""'+ files.join(" "), 
             function (error, stdout, stderr) {
                 if (error) {
-                    throw new util.PluginError('build', 'unable to launch node tsc : ' + error);
+                    throw new util.PluginError('build', 'Unable to launch node tsc : ' + error);
                 }
                 
                 util.log("transpiling finished");
